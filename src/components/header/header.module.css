@@ -1,0 +1,30 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: 1c1e26;
+    height: 75px;
+    color: beige;
+    padding-right: 20px;
+    padding-left: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12); 
+}
+
+.text {
+    font-size: 20px;
+}
+
+.inbutton, 
+.regbutton {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: beige;
+    text-decoration: none;
+}
