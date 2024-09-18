@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "age": 30,
+      "email": "john@gmail.com",
+      "password": 123456789
+    },
+    {
+      "id": "0b85",
+      "name": "Джо",
+      "age": "1990-01-01",
+      "email": "djo@mail.com",
+      "password": "1234567899"
+    },
+    {
+      "id": "2196",
+      "name": "Albert",
+      "age": "2000-01-01",
+      "email": "qwe@qwe.com",
+      "password": "john@gmail.com"
+    }
+  ]
+}
