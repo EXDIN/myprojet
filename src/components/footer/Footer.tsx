@@ -9,7 +9,7 @@ export default function Footer() {
       <a href={myLinkd}>
         <img src={linkdn} className={styles.linked}/>
       </a>
-      <text>© Blizzard Entertainment, Inc., 2024</text>
+      <text>© Lila Entertainment, Inc., 2024</text>
     </div>
   )
 }
