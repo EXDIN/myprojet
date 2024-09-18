@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainPage from './mainpage/MainPage';
 import Registration from './registrationpage/Registration';
+import Authorization from './authorizationpage/authorization';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Routes>
         <Route path="/" element={ <MainPage/>} />
         <Route path="/registration" element={ <Registration/>} />
+        <Route path="/authorization" element={ <Authorization/>} />
       </Routes>
     </BrowserRouter>
   )

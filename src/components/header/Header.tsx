@@ -8,7 +8,7 @@ export default function Header() {
       <div className={styles.header}>
         <b className={styles.text}>Привіт, це Header сайту</b>
         <div >
-          <button className={styles.inbutton}>Увійти</button>
+          <Link className={styles.inbutton} to="/authorization">Увійти</Link>
           <Link className={styles.regbutton} to="/registration">Зареєструватися </ Link>
         </div>
       </div>

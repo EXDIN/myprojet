@@ -1,0 +1,45 @@
+* {
+    background-color: #1c1e26;
+}
+
+.authForm {
+    display: flex;
+    flex-direction: column;
+    margin: 100px auto;
+    font-size: 30px;
+    width: 400px;
+    color: rgb(156, 156, 136);
+}
+
+.inputs {
+    border: 1px, solid, rgba(255, 255, 255, 0.12);
+    margin-bottom: 10px;
+    height: 50px;
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 1px 10px;
+    color: rgb(156, 156, 136);
+}
+
+.inputs::placeholder {
+    color: rgb(156, 156, 136);
+}
+
+.inputs:hover {
+    border-color: rgb(245, 245, 245);
+}
+
+.authForm text {
+    margin-bottom: 10px;
+    text-align: center;
+    font: bold;
+}
+
+.subButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: beige;
+    text-decoration: none;
+}
