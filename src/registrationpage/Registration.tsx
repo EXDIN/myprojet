@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Footer from "../components/footer/Footer";
 import Header from "../components/header/Header";
 import style from "./registration.module.css"
+import myLocalJsonServer from "../components/urls";
 
 type UserData = {
   name: string,
@@ -22,7 +23,7 @@ export default function Registration() {
   const [currentUsersEmails, setCurrentUsersEmails] = useState<string[]>([])
 
   useEffect(() => {
-    fetch("http://localhost:3005/users")
+    fetch(myLocalJsonServer)
     .then(response => response.json())
     .then(users => {
       const emails = users.map((user: UserData) => {return user.email})
@@ -32,7 +33,7 @@ export default function Registration() {
 
   const createUser = () => {
     if (currentUsersEmails.indexOf(userData.email) === -1) {
-      fetch("http://localhost:3005/users", {
+      fetch(myLocalJsonServer, {
         method: "POST",
         headers: {'Content-Type': "application/json"},
         body: JSON.stringify(userData)
