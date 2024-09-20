@@ -1,7 +1,9 @@
 import Header from '../components/header/Header'
 import Footer from '../components/footer/Footer'
 import style from "./authorization.module.css"
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
+import { TypeUserData, UserDataContext } from '../components/context/AuthContext';
+import myLocalJsonServer from "../components/urls";
 
 type UserDataToLog = {
   email: string,
@@ -13,15 +15,35 @@ const emptyUserDataToLog: UserDataToLog = {
   password: ""
 }
 
+type UserData = {
+  name: string,
+  age: string,
+  email: string,
+  password: string
+}
+
 export default function Authorization() {
-  const [userData, setUserData] = useState<UserDataToLog>(emptyUserDataToLog)
-
-  useEffect(() => {
-
-  }, [])
-
-  const authorizationUser = () => {
-
+  const [userDataToLog, setUserDataToLog] = useState<UserDataToLog>(emptyUserDataToLog)
+  const context = useContext<TypeUserData>(UserDataContext)
+  const { setName, setAuth } = context
+  
+  
+  const authorizationUser = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    fetch(myLocalJsonServer)
+    .then(response => response.json())
+    .then((users: UserData[]) => {
+      const isLogIn: UserData[] = users.filter((user: UserData) => { return user.email === userDataToLog.email && String(user.password) === userDataToLog.password })
+      
+      if (isLogIn.length === 1) {
+        setAuth(true)
+        setName(isLogIn[0].name)
+        alert("done")
+      } else {
+        alert("Невірний логін чи пароль")
+      }
+    })
+    .catch(e => console.log(e))
   }
 
   return (
@@ -29,8 +51,8 @@ export default function Authorization() {
       <Header/>
       <form className={style.authForm} onSubmit={authorizationUser}>
         <text>Авторизація</text>
-        <input type="email" id="email" className={style.inputs} placeholder="Електронна пошта або номер телефону" required onChange={(e) => setUserData({...userData, email: e.currentTarget.value})}/>
-        <input type="password" id="password" className={style.inputs} placeholder="Пароль" required onChange={(e) => setUserData({...userData, password: e.currentTarget.value})}/>
+        <input type="email" id="email" className={style.inputs} placeholder="Електронна пошта або номер телефону" required onChange={(e) => setUserDataToLog({...userDataToLog, email: String(e.currentTarget.value)})}/>
+        <input type="password" id="password" className={style.inputs} placeholder="Пароль" required onChange={(e) => setUserDataToLog({...userDataToLog, password: String(e.currentTarget.value)})}/>
         <button type="submit" className={style.subButton}>Увійти до аккаунту</button>
       </form>
       <Footer/>
