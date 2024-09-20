@@ -1,44 +1,36 @@
 import { createContext, ReactNode, useState } from 'react';
 
 
-const userData = {
-  isAuthenticated: false,
-  name: "",
-  async setName(value: string) {
-    this.name = value
-  },
-  async setAuth(value: boolean) {
-    this.isAuthenticated = value
-  },
+interface IMyComponentProps {
+  children: ReactNode;
 }
 
-export type TypeUserData = {
-  isAuthenticated: boolean,
-  name: string,
-  setName: (value: string) => void,
-  setAuth: (value: boolean) => void,
+export type TypeUserContext = {
+  user: {
+    name: string,
+    isAuth: boolean,
+  },
+  updateUser: (newUser: {isAuth: boolean, name: string}) => void,
 }
 
-// interface IMyComponentProps {
-//   children: ReactNode;
-// }
+export const UserDataContext = createContext<TypeUserContext>({
+  user: {
+    name: "",
+    isAuth: false
+  },
+  updateUser: () => {}
+});
 
-export const UserDataContext = createContext<TypeUserData>(userData);
+export const AppProvider: React.FC<IMyComponentProps> = ({ children }) => {
+  const [user, setUser] = useState({name: "", isAuth: false});
 
-// export const AppProvider: React.FC<IMyComponentProps> = ({ children }) => {
-//   const [user, setUser] = useState(userData);
+  const updateUser = (newUser:  {isAuth: boolean, name: string}) => {
+    setUser(newUser);
+  };
 
-//   const updateUser = (newUser:  {isAuthenticated: boolean, name: string}) => {
-//     setUser();
-//   };
-
-//   return (
-//     <UserDataContext.Provider value={{ user, updateUser }}>
-//       {children}
-//     </UserDataContext.Provider>
-//   );
-// };
-
-// Створюємо контекст
-
-export default userData;
+  return (
+    <UserDataContext.Provider value={{ user, updateUser }}>
+      {children}
+    </UserDataContext.Provider>
+  );
+};
