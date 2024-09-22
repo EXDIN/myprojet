@@ -4,19 +4,29 @@ import { useContext } from 'react';
 import { UserDataContext } from '../context/AuthContext';
 
 
-export default function Header() {
+export default function Header () {
   const context = useContext(UserDataContext)
-  const { user } = context
+  const { user, updateUser } = context
+
+  const logOut = () => {
+    updateUser({isAuth: false, name: ""})
+  }
 
   return (
     <>
       <div className={styles.header}>
         <b className={styles.text}>Привіт, це Header сайту</b>
-        <b className={styles.text}>{user.isAuth ? 'Hiiii  '+user.name : null}</b>
-        <div >
-          <Link className={styles.inbutton} to="/authorization">Увійти</Link>
-          <Link className={styles.regbutton} to="/registration">Зареєструватися </ Link>
-        </div>
+        { user.isAuth ?
+          <>
+            <b className={styles.text}>{'Hiiii  '+user.name}</b>
+            <button  className={styles.button} onClick={logOut}>Вийти з акаунта</button>
+          </>
+          :
+          <div >
+            <Link className={styles.inbutton} to="/authorization">Увійти</Link>
+            <Link className={styles.regbutton} to="/registration">Зареєструватися </ Link>
+          </div>
+        }
       </div>
     </>
   )

@@ -1,17 +1,6 @@
-import { createContext, ReactNode, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
+import { IMyComponentProps, TypeUserContext, typeUserData } from '../../typesAndInterfaces';
 
-
-interface IMyComponentProps {
-  children: ReactNode;
-}
-
-export type TypeUserContext = {
-  user: {
-    name: string,
-    isAuth: boolean,
-  },
-  updateUser: (newUser: {isAuth: boolean, name: string}) => void,
-}
 
 export const UserDataContext = createContext<TypeUserContext>({
   user: {
@@ -22,10 +11,18 @@ export const UserDataContext = createContext<TypeUserContext>({
 });
 
 export const AppProvider: React.FC<IMyComponentProps> = ({ children }) => {
-  const [user, setUser] = useState({name: "", isAuth: false});
+  const [user, setUser] = useState<typeUserData>({name: "", isAuth: false});
+  
+  useEffect(() => {
+    const userData = sessionStorage.getItem('sessionUserData')
+    if (userData) {
+      setUser(JSON.parse(userData))
+    }
+  }, [])
 
   const updateUser = (newUser:  {isAuth: boolean, name: string}) => {
     setUser(newUser);
+    sessionStorage.setItem('sessionUserData', JSON.stringify(newUser));
   };
 
   return (

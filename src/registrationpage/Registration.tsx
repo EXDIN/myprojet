@@ -1,15 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Footer from "../components/footer/Footer";
 import Header from "../components/header/Header";
 import style from "./registration.module.css"
 import myLocalJsonServer from "../components/urls";
+import { UserDataContext } from "../components/context/AuthContext";
+import { useNavigate } from "react-router-dom";
+import { UserData } from "../typesAndInterfaces";
 
-type UserData = {
-  name: string,
-  age: string,
-  email: string,
-  password: string
-}
 
 const emptyUserData: UserData = {
   name: "",
@@ -21,6 +18,13 @@ const emptyUserData: UserData = {
 export default function Registration() {
   const [userData, setUserData] = useState<UserData>(emptyUserData)
   const [currentUsersEmails, setCurrentUsersEmails] = useState<string[]>([])
+  const context = useContext(UserDataContext)
+  const { user } = context
+  const navigate = useNavigate();
+
+   if(user.isAuth) {
+      navigate('/');
+  }
 
   useEffect(() => {
     fetch(myLocalJsonServer)

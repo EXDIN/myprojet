@@ -4,28 +4,24 @@ import style from "./authorization.module.css"
 import { useContext, useState } from "react";
 import { UserDataContext } from '../components/context/AuthContext';
 import myLocalJsonServer from "../components/urls";
+import { useNavigate } from 'react-router-dom';
+import { UserData, UserDataToLog } from '../typesAndInterfaces';
 
-type UserDataToLog = {
-  email: string,
-  password: string
-}
 
-const emptyUserDataToLog: UserDataToLog = {
+const emptyUserDataToLog: UserDataToLog  = {
   email: "",
   password: ""
-}
-
-type UserData = {
-  name: string,
-  age: string,
-  email: string,
-  password: string
 }
 
 export default function Authorization() {
   const [userDataToLog, setUserDataToLog] = useState<UserDataToLog>(emptyUserDataToLog)
   const context = useContext(UserDataContext)
   const { user, updateUser } = context
+  const navigate = useNavigate();
+
+  if(user.isAuth) {
+    navigate('/');
+  }
   
   const authorizationUser = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -36,6 +32,7 @@ export default function Authorization() {
       
       if (isLogIn.length === 1) {
         updateUser({isAuth: true, name: isLogIn[0].name})
+        navigate('/');
       } else {
         alert("Невірний логін чи пароль")
       }

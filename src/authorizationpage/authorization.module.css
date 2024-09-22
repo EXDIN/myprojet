@@ -43,3 +43,10 @@
     background-color: beige;
     text-decoration: none;
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-text-fill-color: rgb(156, 156, 136);
+    -webkit-box-shadow: 0 0 0px 1000px #1c1e26 inset;
+}
