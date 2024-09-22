@@ -15,11 +15,15 @@ export default function Header () {
   return (
     <>
       <div className={styles.header}>
-        <b className={styles.text}>Привіт, це Header сайту</b>
+        <div>
+          {/* <b className={styles.text}>Привіт, це Header сайту</b> */}
+          <Link className={styles.button} to="/">Головна сторінка</Link>
+          <Link className={styles.button} to="/articles">Статті</Link>
+        </div>
         { user.isAuth ?
           <>
-            <b className={styles.text}>{'Hiiii  '+user.name}</b>
-            <button  className={styles.button} onClick={logOut}>Вийти з акаунта</button>
+            <b className={styles.text}>{'Welcome  '+user.name+" *_*"}</b>
+            <button className={styles.button} onClick={logOut}>Вийти з акаунта</button>
           </>
           :
           <div >

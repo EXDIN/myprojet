@@ -1,0 +1,44 @@
+.allArticles {
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-bottom: 100px;
+}
+
+.formArticle {
+    margin-top: 50px;
+    width: 600px;
+    padding: 15px;
+    border: 3px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+.artycleHeader {
+    font-size: 22px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    text-align: center;
+    color: beige;
+}
+
+.mainText {
+    color: beige;
+}
+
+.articleFooter {
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    padding-top: 5px;
+    margin-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+
+.emptyAtricles {
+    font-size: 22px;
+    text-align: center;
+    color: beige;
+}
+
