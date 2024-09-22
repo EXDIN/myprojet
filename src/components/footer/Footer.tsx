@@ -1,7 +1,7 @@
 import styles from "./footer.module.css"
 import linkdn from "../../image/linkedin.png"
+import { myLinkd } from "../urls"
 
-const myLinkd = "https://www.linkedin.com/in/ivan-lila/"
 
 export default function Footer() {
   return (
