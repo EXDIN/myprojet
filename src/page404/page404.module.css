@@ -1,0 +1,36 @@
+
+.backVideo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.content {
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    margin: 500px 750px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.text {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.link {
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: beige;
+    margin: 30px 50px;
+    color: black
+}
