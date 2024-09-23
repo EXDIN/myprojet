@@ -16,9 +16,9 @@ export default function Header () {
     <>
       <div className={styles.header}>
         <div>
-          {/* <b className={styles.text}>Привіт, це Header сайту</b> */}
           <Link className={styles.button} to="/">Головна сторінка</Link>
           <Link className={styles.button} to="/articles">Статті</Link>
+          <Link className={styles.button} to="/comments">Коментарі</Link>
         </div>
         { user.isAuth ?
           <>
