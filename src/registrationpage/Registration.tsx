@@ -22,7 +22,7 @@ export default function Registration() {
   const { user } = context
   const navigate = useNavigate();
 
-   if(user.isAuth) {
+  if(user.isAuth) {
       navigate('/');
   }
 
