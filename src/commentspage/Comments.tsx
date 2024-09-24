@@ -80,11 +80,11 @@ export default function Comments() {
             {
             !comment.edit
             ?
-            <button className={style.button} onClick={(e) => getEdit(comments[index], style.mainText, index)}><Pencil /></button>
+            <button className={style.button} onClick={() => getEdit(comments[index], style.mainText, index)}><Pencil /></button>
             :
-            <button className={style.button} onClick={(e) => getEdit(comments[index], style.mainText, index)}><Save /></button>
+            <button className={style.button} onClick={() => getEdit(comments[index], style.mainText, index)}><Save /></button>
             }
-            <button className={style.button} onClick={(e) => deleteComment(index)}><Trash2 /></button>
+            <button className={style.button} onClick={() => deleteComment(index)}><Trash2 /></button>
           </div>
         </div>
         ))
