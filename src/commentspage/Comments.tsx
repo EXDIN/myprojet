@@ -25,14 +25,20 @@ export default function Comments() {
 
   useEffect(() => {
     const sessionCom = sessionStorage.getItem('allComments')
-    if (!sessionCom) {
+    let parseSession = null;
+    if (sessionCom) {
+      parseSession = JSON.parse(sessionCom)
+    }
+
+    if (!parseSession || parseSession.length == 0) {
       fetch('https://dummyjson.com/comments')
       .then(response => response.json())
       .then(data => setComments(data.comments))
       sessionStorage.setItem('allComments', JSON.stringify(comments))
-    } else {
-      setComments(JSON.parse(sessionCom))
+    } else {   
+      setComments(parseSession)
     }
+
   }, []);
 
   const getEdit = (comment: TypeComment, id: string, index: number) => {
@@ -69,7 +75,7 @@ export default function Comments() {
               <HandHeart className={style.likeImj}/>
             </div>
           </div>
-          <div className={style.mainText} contentEditable={comment.edit} ref={inputRef}>{comment.body}</div>
+          <div className={style.mainText} contentEditable={comment.edit} ref={inputRef} style={comment.edit ? {'color': "#0074e0", 'padding': '5px'} : {}}>{comment.body}</div>
           <div className={style.articleFooter}>
             {
             !comment.edit
