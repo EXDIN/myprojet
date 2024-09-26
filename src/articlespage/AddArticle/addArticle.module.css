@@ -1,0 +1,50 @@
+.addArticleButton {
+    width: auto;
+    background-color: beige;
+    font-size: 20px;
+    padding: 10px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.form {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
+
+.titleName {
+    width: 50%;
+    height: 10%;
+    background-color: beige;
+    border-radius: 20px;
+    padding: 5px 15px;
+    border: 5px solid #1c1e26;
+    font-size: 50px;
+    color: #1c1e26;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.titleBody {
+    width: 95%;
+    height: 65%;
+    background-color: beige;
+    font-size: 50px;
+    color: #1c1e26;
+    resize: none;
+    border-radius: 20px;
+    border: 5px solid #1c1e26;
+    padding: 5px 15px;
+}
+
+.addButton {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    width: 30%;
+    height: 10%;
+    background-color: beige;
+    border-radius: 20px;
+    font-size: 50px;
+    color: #1c1e26;
+}
