@@ -1,4 +1,4 @@
-import { Pencil, Save, Trash2 } from "lucide-react";
+import { Pencil, Trash2 } from "lucide-react";
 import { TypeBodyArticles } from "../../typesAndInterfaces";
 import style from "./Article.module.css"
 import { useState } from "react";
