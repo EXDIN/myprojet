@@ -5,6 +5,7 @@
 
 .header {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     background: 1c1e26;
