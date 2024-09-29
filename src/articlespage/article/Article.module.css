@@ -1,13 +1,12 @@
-.allArticles {
-    margin: 20px;
-}
 
 .formArticle {
-    width: 22vw;
-    height: 300px;
+    width: 28%;
+    height: 20%;
+    margin: 20px;
     padding: 15px;
     border: 3px solid rgba(255, 255, 255, 0.2);
     border-radius: 10px;
+    display: block;
 }
 
 .artycleHeader {
@@ -22,6 +21,9 @@
 .mainText {
     color: beige;
     font-size: 16px;
+    text-align: start;
+    height: 150px;
+    overflow: hidden;
 }
 
 .articleFooter {
@@ -31,7 +33,6 @@
     padding-top: 10px;
     margin-top: 10px;
     border-top: 1px solid rgba(255, 255, 255, 0.15);
-    
 }
 
 .button {

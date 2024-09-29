@@ -7,26 +7,22 @@ import EditWindow from "../EditWindow/EditWindow";
 
 type TypeArticle = {
     article: TypeBodyArticles
-    onDelete: (id: number) => void
+    onDelete: (id: string) => void
+    updateArticle: (newArticle: TypeBodyArticles) => void
 }
 
-export default function Article({article, onDelete}: TypeArticle) {
+export default function Article({article, onDelete, updateArticle}: TypeArticle) {
   const [ modalActive, setModalActive ] = useState(false)
 
-  const localDel = () => {
-    onDelete(article.id)
-  }
-
-  const localEdit = () => {
+  const openEdit = () => {
     setModalActive(true)
   }
 
   return (
     <>
-    <div className={style.allArticles}>
       <div className={style.formArticle}>
         <p className={style.artycleHeader}>{article.title}</p>
-        <text className={style.mainText}>{article.body}</text>
+        <div className={style.mainText}>{article.body}</div>
         <div className={style.articleFooter}>
           <div>
             <text style={{'marginRight': '20px'}}>{article.author}</text>
@@ -34,13 +30,12 @@ export default function Article({article, onDelete}: TypeArticle) {
             <text>{article.date}</text>
           </div>
           <div>
-            <button className={style.button} onClick={localEdit}><Pencil /></button>
-            <button className={style.button} onClick={localDel}><Trash2 /></button>
+            <button className={style.button} onClick={openEdit}><Pencil /></button>
+            <button className={style.button} onClick={() => onDelete(article.id)}><Trash2 /></button>
           </div>
         </div>
       </div>
-    </div>
-    {modalActive ? <EditWindow active={modalActive} setActive={setModalActive}></EditWindow> : null}
+    {<EditWindow article={article} updateArticle={updateArticle} modalActive={modalActive} setModalActive={setModalActive}></EditWindow>}
     </>
   )
 }

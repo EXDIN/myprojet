@@ -3,9 +3,10 @@ import style from "./addArticle.module.css"
 import ModalComponent from "../../components/ModalComponent/ModalCompont"
 import { myLocalArticles } from "../../components/urls"
 import { TypeBodyArticles } from "../../typesAndInterfaces"
+import { getCurrentDate } from "../../components/common"
 
 const emptyArticles: TypeBodyArticles = {
-    "id": 0,
+    "id": "",
     "title": "",
     "body": "",
     "author": "",
@@ -15,14 +16,16 @@ const emptyArticles: TypeBodyArticles = {
 export default function AddArticle() {
   const [ modalActive, setModalActive ] = useState(false)
   const [ data, setData ] = useState<TypeBodyArticles>(emptyArticles)
-
+  
   // TODO Додати Автора з логіну та коректний id
   useEffect(() => {
-    fetch(myLocalArticles)
-    .then(response => response.json())
-    .then(bdArticles => {
-      setData({...data, id: (bdArticles.length + 1), date: String(new Date()), author: "David"})
-    })
+    const addArtToData = async () => {
+      const maxNum = await getMaxId()
+      await setData({...data, id: String( maxNum + 1), date: String(getCurrentDate()), author: "David"})
+    }
+
+    addArtToData()
+
   }, [style.addButton])
 
   const addArticle = () => {
@@ -49,4 +52,15 @@ export default function AddArticle() {
       : null}
     </>
   )
+}
+
+async function getMaxId() {
+  let maxNumber = 0;
+  await fetch(myLocalArticles)
+  .then(response => response.json())
+  .then(articles => {
+    maxNumber = Math.max(...articles.map((article: TypeBodyArticles) => article.id));
+  })
+
+  return maxNumber;
 }

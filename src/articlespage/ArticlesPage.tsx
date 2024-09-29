@@ -1,7 +1,7 @@
 import Footer from "../components/footer/Footer";
 import Header from "../components/header/Header";
 import style from "./articles.module.css"
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Article from "./Article/Article";
 import { TypeBodyArticles } from "../typesAndInterfaces";
 import { myLocalArticles } from "../components/urls";
@@ -10,7 +10,7 @@ import AddArticle from "./AddArticle/AddArticle";
 
 const emptyArticles: TypeBodyArticles[] = [
   {
-    "id": 0,
+    "id": "",
     "title": "",
     "body": "",
     "author": "",
@@ -30,8 +30,8 @@ export default function ArticlesPage() {
   }, [])
 
 
-  const deleteAtricle = async (id: number) => {
-    const newArticles = articles.filter((el) => el.id != id)
+  const deleteAtricle = async (id: string) => {
+    const newArticles = articles.filter((el) => Number(el.id) != Number(id))
     await setArticles([...newArticles])
     const response = await fetch(`${myLocalArticles}/${id}`, {
       method: "DELETE",
@@ -41,6 +41,18 @@ export default function ArticlesPage() {
     if (!response.ok) {
       console.log(response);
     }
+  }
+
+  const updateArticle = (newArticle: TypeBodyArticles) => {
+    const otherAtricles = articles.filter((el) => String(el.id) != String(newArticle.id))
+    setArticles([...otherAtricles, newArticle])
+    fetch(`${myLocalArticles}/${newArticle.id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newArticle)
+    })
   }
   
   return (
@@ -53,7 +65,7 @@ export default function ArticlesPage() {
           articles.length != 0
           ?
             articles.map((article) => 
-              (<Article key={article.id} article={article} onDelete={deleteAtricle} />)
+              <Article key={article.id} article={article} onDelete={deleteAtricle} updateArticle={updateArticle} />
             )
           :
             <div className={style.emptyAtricles}>Список статей порожній</div>

@@ -1,25 +1,39 @@
+import { useState } from "react"
+import ModalComponent from "../../components/ModalComponent/ModalCompont"
+import { TypeBodyArticles } from "../../typesAndInterfaces"
 import style from "./editwindow.module.css"
+import { getCurrentDate } from "../../components/common"
 
 
-type TypeEditWindiw = {
-    active: boolean,
-    setActive: (isActive: boolean) => void,
+type TypeArticle = {
+  article: TypeBodyArticles,
+  modalActive: boolean,
+  setModalActive: (arg0: boolean) => void
+  updateArticle: (data: TypeBodyArticles) => void
 }
 
-export default function EditWindow({active, setActive}: TypeEditWindiw) {
-  console.log(active+" "+setActive);
-  
+export default function EditWindow({article, modalActive, setModalActive, updateArticle}: TypeArticle) {
+  const [ data, setData ] = useState<TypeBodyArticles>(article)
+
+  const onLocalUpdate = () => {
+    const newData = {...data, date: getCurrentDate(), author: "New Author"}
+    setData(newData)
+    updateArticle(newData)
+  }
 
   return (
-    <div className={style.modal} onClick={() => setActive(false)}>
-      <div className={style.modalContent} onClick={e => e.stopPropagation()}>
-        <div className={style.divinp}>
-          <input className={style.articleName}></input>
-        </div>
-        <div>
-        <textarea className={style.articleBody}></textarea>
-        </div>
-      </div>
-    </div>
+    <>
+      {modalActive 
+      ? 
+      <ModalComponent active={modalActive} setActive={setModalActive}>
+        <form className={style.form} onSubmit={onLocalUpdate}>
+          <input className={style.titleName} onChange={(e) => setData({...data, title: e.currentTarget.value})} value={data.title}></input>
+          <textarea className={style.titleBody} onChange={(e) => setData({...data, body: e.currentTarget.value})} value={data.body}></textarea>
+          <button type="submit" className={style.addButton}>Збререгти зміни</button>
+        </form>
+      </ModalComponent> 
+      : null}
+    </>
+
   )
 }

@@ -27,7 +27,7 @@ export type TypeUserContext = {
 }
 
 export type TypeBodyArticles = {
-  id: number
+  id: string
   title: string
   body: string
   author: string
