@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import style from "./addArticle.module.css"
 import ModalComponent from "../../components/ModalComponent/ModalCompont"
 import { myLocalArticles } from "../../components/urls"
 import { TypeBodyArticles } from "../../typesAndInterfaces"
 import { getCurrentDate } from "../../components/common"
+import { UserDataContext } from "../../components/context/AuthContext"
 
 const emptyArticles: TypeBodyArticles = {
     "id": "",
@@ -16,12 +17,13 @@ const emptyArticles: TypeBodyArticles = {
 export default function AddArticle() {
   const [ modalActive, setModalActive ] = useState(false)
   const [ data, setData ] = useState<TypeBodyArticles>(emptyArticles)
+  const context = useContext(UserDataContext)
+  const { user } = context
   
-  // TODO Додати Автора з логіну та коректний id
   useEffect(() => {
     const addArtToData = async () => {
       const maxNum = await getMaxId()
-      await setData({...data, id: String( maxNum + 1), date: String(getCurrentDate()), author: "David"})
+      await setData({...data, id: String( maxNum + 1), date: String(getCurrentDate()), author: user.name})
     }
 
     addArtToData()

@@ -24,6 +24,7 @@
     text-align: start;
     height: 150px;
     overflow: hidden;
+    word-wrap: break-word;
 }
 
 .articleFooter {

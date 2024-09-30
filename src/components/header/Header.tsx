@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import styles from "./header.module.css"
 import { useContext } from 'react';
 import { UserDataContext } from '../context/AuthContext';
+import { lang } from '../common';
 
 
 export default function Header () {
@@ -21,8 +22,8 @@ export default function Header () {
           user.isAuth 
           ?
           <>
-          <Link className={styles.button} to="/articles">Статті</Link>
-          <Link className={styles.button} to="/comments">Коментарі</Link>
+          <Link className={styles.button} to="/articles">{lang("Статті", "Articles")}</Link>
+          <Link className={styles.button} to="/comments">{lang("Коментарі", "Comments")}</Link>
           </>
           :
           null

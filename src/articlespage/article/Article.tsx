@@ -1,8 +1,9 @@
-import { Pencil, Trash2 } from "lucide-react";
+import { Eye, Pencil, Trash2 } from "lucide-react";
 import { TypeBodyArticles } from "../../typesAndInterfaces";
 import style from "./Article.module.css"
 import { useState } from "react";
-import EditWindow from "../EditWindow/EditWindow";
+import EditWindow from "./EditWindow/EditWindow";
+import ViewWindow from "./ViewWindow/ViewWindow";
 
 
 type TypeArticle = {
@@ -13,9 +14,14 @@ type TypeArticle = {
 
 export default function Article({article, onDelete, updateArticle}: TypeArticle) {
   const [ modalActive, setModalActive ] = useState(false)
+  const [ modalWindowActive, setModalWindowActive ] = useState(false)
 
   const openEdit = () => {
     setModalActive(true)
+  }
+
+  const openView = () => {
+    setModalWindowActive(true)
   }
 
   return (
@@ -30,12 +36,14 @@ export default function Article({article, onDelete, updateArticle}: TypeArticle)
             <text>{article.date}</text>
           </div>
           <div>
+            <button className={style.button} onClick={openView}><Eye /></button>
             <button className={style.button} onClick={openEdit}><Pencil /></button>
             <button className={style.button} onClick={() => onDelete(article.id)}><Trash2 /></button>
           </div>
         </div>
       </div>
-    {<EditWindow article={article} updateArticle={updateArticle} modalActive={modalActive} setModalActive={setModalActive}></EditWindow>}
+      {<ViewWindow article={article} modalWindowActive={modalWindowActive} setModalWindowActive={setModalWindowActive}></ViewWindow>}
+      {<EditWindow article={article} updateArticle={updateArticle} modalActive={modalActive} setModalActive={setModalActive}></EditWindow>}
     </>
   )
 }

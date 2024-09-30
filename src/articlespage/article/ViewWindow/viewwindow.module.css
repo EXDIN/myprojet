@@ -1,0 +1,38 @@
+
+.form {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center; /* Горизонтальне вирівнювання */
+    align-items: center;
+}
+
+.titleName {
+    width: 50%;
+    height: 10%;
+    background-color: beige;
+    border-radius: 20px;
+    padding: 5px 15px;
+    border: 5px solid #1c1e26;
+    font-size: 50px;
+    color: #1c1e26;
+    margin-bottom: 20px;
+}
+
+.titleBody {
+    width: 95%;
+    height: 80%;
+    background-color: beige;
+    font-size: 50px;
+    color: #1c1e26;
+    resize: none;
+    border-radius: 20px;
+    border: 5px solid #1c1e26;
+    padding: 5px 15px;
+    overflow: auto;
+    text-align: start;
+    word-wrap: break-word;
+}

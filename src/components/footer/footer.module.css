@@ -10,9 +10,24 @@
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     color: #fff;
     margin-top: 100px;
+    justify-content: space-between;
 }
 
 .linked {
     height: 30px;
     margin: 0px 10px;
+}
+
+.language {
+    display: flex;
+    color: beige;
+    cursor: pointer;
+    border: none;
+    margin-right: 50px;
+    align-items: center;
+    color:rgb(0, 140, 255)
+}
+
+.ikon {
+    margin-right: 5px;
 }

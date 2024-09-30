@@ -1,8 +1,10 @@
-import { useState } from "react"
-import ModalComponent from "../../components/ModalComponent/ModalCompont"
-import { TypeBodyArticles } from "../../typesAndInterfaces"
+import { useContext, useState } from "react"
 import style from "./editwindow.module.css"
-import { getCurrentDate } from "../../components/common"
+import { TypeBodyArticles } from "../../../typesAndInterfaces"
+import { getCurrentDate } from "../../../components/common"
+import ModalComponent from "../../../components/ModalComponent/ModalCompont"
+import { UserDataContext } from "../../../components/context/AuthContext"
+
 
 
 type TypeArticle = {
@@ -14,9 +16,11 @@ type TypeArticle = {
 
 export default function EditWindow({article, modalActive, setModalActive, updateArticle}: TypeArticle) {
   const [ data, setData ] = useState<TypeBodyArticles>(article)
+  const context = useContext(UserDataContext)
+  const { user } = context
 
   const onLocalUpdate = () => {
-    const newData = {...data, date: getCurrentDate(), author: "New Author"}
+    const newData = {...data, date: getCurrentDate(), author: user.name}
     setData(newData)
     updateArticle(newData)
   }
