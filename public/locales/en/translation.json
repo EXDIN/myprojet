@@ -1,0 +1,16 @@
+{
+    "welcome": "Welcome",
+    "registration": "Sing up",
+    "login": "Log in",
+    "logout": "Log out",
+    "articles": "Articles",
+    "comments": "Comments",
+    "mainpage": "Main page",
+    "emptyArticles": "List of articles is empty",
+    "addNewArticle": "Add new Article",
+    "createUser": "Create user",
+    "yourName": "Your name",
+    "number/email": "Email or phone number",
+    "password": "Password",
+    "authorization": "Authorization"
+}

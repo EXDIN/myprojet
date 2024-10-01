@@ -6,6 +6,7 @@ import Article from "./Article/Article";
 import { TypeBodyArticles } from "../typesAndInterfaces";
 import { myLocalArticles } from "../components/urls";
 import AddArticle from "./AddArticle/AddArticle";
+import { useTranslation } from "react-i18next";
 
 
 const emptyArticles: TypeBodyArticles[] = [
@@ -20,6 +21,7 @@ const emptyArticles: TypeBodyArticles[] = [
 
 export default function ArticlesPage() {
   const [ articles, setArticles ] = useState(emptyArticles);
+  const { t } = useTranslation();
 
   useEffect(() => {
     fetch(myLocalArticles)
@@ -28,7 +30,6 @@ export default function ArticlesPage() {
       setArticles(bdArticles)
     })
   }, [])
-
 
   const deleteAtricle = async (id: string) => {
     const newArticles = articles.filter((el) => Number(el.id) != Number(id))
@@ -68,7 +69,7 @@ export default function ArticlesPage() {
               <Article key={article.id} article={article} onDelete={deleteAtricle} updateArticle={updateArticle} />
             )
           :
-            <div className={style.emptyAtricles}>Список статей порожній</div>
+            <div className={style.emptyAtricles}>{t("emptyArticles")}</div>
           }
         </div>
       </div>

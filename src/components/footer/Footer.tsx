@@ -2,35 +2,24 @@ import style from "./footer.module.css"
 import linkdn from "../../image/linkedin.png"
 import { myLinkd } from "../urls"
 import { Globe } from "lucide-react"
-import { useEffect, useState } from "react"
-import { LANGUAGE } from "../common"
-import { useLocation, useNavigate } from "react-router-dom"
+import { useState } from "react"
+import { useTranslation } from "react-i18next"
+
+type TypeLanguage = "uk" | "en"
 
 
 export default function Footer() {
-  const [ language, setLanguage ] = useState<number>(LANGUAGE.UA)
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  useEffect(() => {
-    const currLanguage = Number(localStorage.getItem('userLanguage'));
-    if (currLanguage) {
-      setLanguage(currLanguage)
-    } else {
-      localStorage.setItem('userLanguage', JSON.stringify(LANGUAGE.UA));
-    }
-  }, [style.language])
+  const [ language, setLanguage ] = useState<TypeLanguage>("uk")
+  const { t, i18n } = useTranslation();
 
   const changeLanguage = () => {
-    let newLanguage = LANGUAGE.UA
-    if (language === LANGUAGE.UA) {
-      newLanguage = LANGUAGE.EN
-    } 
+    let newLanguage: TypeLanguage = "uk"
+    if (language === "uk") {
+      newLanguage = "en"
+    }
     setLanguage(newLanguage)
-    localStorage.setItem('userLanguage', JSON.stringify(newLanguage));
-    // window.location.reload();
-    navigate("/")
-  }
+    i18n.changeLanguage(newLanguage);
+  };
 
   return (
     <div className={style.footer}>
@@ -40,7 +29,7 @@ export default function Footer() {
         </a>
         <text>© Lila Entertainment, Inc., 2024</text>
       </div>
-      <button className={style.language} onClick={changeLanguage}><Globe className={style.ikon}></Globe>{LANGUAGE[language]}</button>
+      <button className={style.language} onClick={() => changeLanguage()}><Globe className={style.ikon}></Globe>{language}</button>
     </div>
   )
 }

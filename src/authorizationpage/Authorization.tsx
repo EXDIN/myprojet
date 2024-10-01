@@ -6,6 +6,7 @@ import { UserDataContext } from '../components/context/AuthContext';
 import myLocalJsonServer from "../components/urls";
 import { useNavigate } from 'react-router-dom';
 import { UserData, UserDataToLog } from '../typesAndInterfaces';
+import { useTranslation } from 'react-i18next';
 
 
 const emptyUserDataToLog: UserDataToLog  = {
@@ -18,6 +19,7 @@ export default function Authorization() {
   const context = useContext(UserDataContext)
   const { user, updateUser } = context
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   if(user.isAuth) {
     navigate('/');
@@ -44,10 +46,10 @@ export default function Authorization() {
     <>
       <Header/>
       <form className={style.authForm} onSubmit={authorizationUser}>
-        <text>Авторизація {user.name}</text>
-        <input type="email" id="email" className={style.inputs} placeholder="Електронна пошта або номер телефону" required onChange={(e) => setUserDataToLog({...userDataToLog, email: String(e.currentTarget.value)})}/>
-        <input type="password" id="password" className={style.inputs} placeholder="Пароль" required onChange={(e) => setUserDataToLog({...userDataToLog, password: String(e.currentTarget.value)})}/>
-        <button type="submit" className={style.subButton}>Увійти до аккаунту</button>
+        <text>{t("authorization")}</text>
+        <input type="email" id="email" className={style.inputs} placeholder={t("number/email")} required onChange={(e) => setUserDataToLog({...userDataToLog, email: String(e.currentTarget.value)})}/>
+        <input type="password" id="password" className={style.inputs} placeholder={t("password")} required onChange={(e) => setUserDataToLog({...userDataToLog, password: String(e.currentTarget.value)})}/>
+        <button type="submit" className={style.subButton}>{t("login")}</button>
       </form>
       <Footer/>
     </>

@@ -9,4 +9,5 @@ json-server --watch db.json --port 3005
 
 
 3. Стилі кнопок Articles - lucide-react
+4. Переклад - react-i18next
 

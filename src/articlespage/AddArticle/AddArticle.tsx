@@ -5,6 +5,7 @@ import { myLocalArticles } from "../../components/urls"
 import { TypeBodyArticles } from "../../typesAndInterfaces"
 import { getCurrentDate } from "../../components/common"
 import { UserDataContext } from "../../components/context/AuthContext"
+import { useTranslation } from "react-i18next"
 
 const emptyArticles: TypeBodyArticles = {
     "id": "",
@@ -16,6 +17,7 @@ const emptyArticles: TypeBodyArticles = {
 
 export default function AddArticle() {
   const [ modalActive, setModalActive ] = useState(false)
+  const { t } = useTranslation();
   const [ data, setData ] = useState<TypeBodyArticles>(emptyArticles)
   const context = useContext(UserDataContext)
   const { user } = context
@@ -41,7 +43,7 @@ export default function AddArticle() {
 
   return (
     <>
-      <button className={style.addArticleButton} onClick={() => setModalActive(true)}>Додати нову статтю</button>
+      <button className={style.addArticleButton} onClick={() => setModalActive(true)}>{t("addNewArticle")}</button>
       {modalActive 
       ? 
       <ModalComponent active={modalActive} setActive={setModalActive}>

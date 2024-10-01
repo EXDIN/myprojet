@@ -6,6 +6,7 @@ import myLocalJsonServer from "../components/urls";
 import { UserDataContext } from "../components/context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { UserData } from "../typesAndInterfaces";
+import { useTranslation } from "react-i18next";
 
 
 const emptyUserData: UserData = {
@@ -21,6 +22,7 @@ export default function Registration() {
   const context = useContext(UserDataContext)
   const { user } = context
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   if(user.isAuth) {
       navigate('/');
@@ -52,12 +54,12 @@ export default function Registration() {
     <>
       <Header/>
       <form className={style.regForm} onSubmit={createUser}>
-        <text>Реєстрація в системі</text>
-        <input type="text" id="name" className={style.inputs} placeholder="Ваше ім'я" required onChange={(e) => setUserData({...userData, name: e.currentTarget.value})}/>
-        <input type="date" id="birthDate" className={style.inputs} placeholder="Ваше ім'я" required onChange={(e) => setUserData({...userData, age: e.currentTarget.value})}/>
-        <input type="email" id="email" className={style.inputs} placeholder="Електронна пошта або номер телефону" required onChange={(e) => setUserData({...userData, email: e.currentTarget.value})}/>
-        <input type="password" id="password" className={style.inputs} placeholder="Пароль" required onChange={(e) => setUserData({...userData, password: e.currentTarget.value})}/>
-        <button type="submit" className={style.subbutton}>Зареєструватися</button>
+        <text>{t("registration")}</text>
+        <input type="text" id="name" className={style.inputs} placeholder={t("yourName")} required onChange={(e) => setUserData({...userData, name: e.currentTarget.value})}/>
+        <input type="date" id="birthDate" className={style.inputs} required onChange={(e) => setUserData({...userData, age: e.currentTarget.value})}/>
+        <input type="email" id="email" className={style.inputs} placeholder={t("number/email")} required onChange={(e) => setUserData({...userData, email: e.currentTarget.value})}/>
+        <input type="password" id="password" className={style.inputs} placeholder={t("password")} required onChange={(e) => setUserData({...userData, password: e.currentTarget.value})}/>
+        <button type="submit" className={style.subbutton}>{t("createUser")}</button>
       </form>
       <Footer/>
     </>
