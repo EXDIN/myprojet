@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styles from "./header.module.css"
 import { useContext } from 'react';
-import { UserDataContext } from '../context/AuthContext';
+import { UserDataContext } from '../../context/AuthContext';
 import { useTranslation } from 'react-i18next';
 
 

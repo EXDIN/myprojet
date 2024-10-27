@@ -6,6 +6,7 @@ import Comments from './pages/Comments/Comments';
 import Authorization from './pages/Authorization/Authorization';
 import ArticlesPage from './pages/articles/ArticlesPage';
 
+
 function App() {
   return (
     <BrowserRouter>
@@ -20,5 +21,6 @@ function App() {
     </BrowserRouter>
   )
 }
+
 
 export default App

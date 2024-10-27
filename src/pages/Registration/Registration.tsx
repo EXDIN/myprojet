@@ -2,8 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
 import style from "./registration.module.css"
-import myLocalJsonServer from "../../components/urls";
-import { UserDataContext } from "../../components/context/AuthContext";
+import myLocalJsonServer from "../../URLS/urls";
+import { UserDataContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { UserData } from "../../typesAndInterfaces";
 import { useTranslation } from "react-i18next";

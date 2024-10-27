@@ -1,7 +1,7 @@
 import { useContext, useState } from "react"
 import style from "./editwindow.module.css"
 import { getCurrentDate } from "../../../../components/common"
-import { UserDataContext } from "../../../../components/context/AuthContext"
+import { UserDataContext } from "../../../../context/AuthContext"
 import ModalComponent from "../../../../components/ModalComponent/ModalCompont"
 import { TypeBodyArticles } from "../../../../typesAndInterfaces"
 

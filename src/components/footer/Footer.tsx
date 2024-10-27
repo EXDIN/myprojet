@@ -1,6 +1,6 @@
 import style from "./footer.module.css"
 import linkdn from "../../image/linkedin.png"
-import { myLinkd } from "../urls"
+import { myLinkd } from "../../URLS/urls"
 import { Globe } from "lucide-react"
 import { useState } from "react"
 import { useTranslation } from "react-i18next"

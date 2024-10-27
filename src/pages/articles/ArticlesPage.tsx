@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
-import { myLocalArticles } from "../../components/urls";
+import { myLocalArticles } from "../../URLS/urls";
 import { TypeBodyArticles } from "../../typesAndInterfaces";
 import AddArticle from "./AddArticle/AddArticle";
 import Article from "./Article/Article";

@@ -2,10 +2,10 @@ import style from "./authorization.module.css"
 import { useContext, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { UserDataContext } from "../../components/context/AuthContext";
+import { UserDataContext } from "../../context/AuthContext";
 import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
-import myLocalJsonServer from "../../components/urls";
+import myLocalJsonServer from "../../URLS/urls";
 import { UserDataToLog, UserData } from "../../typesAndInterfaces";
 
 

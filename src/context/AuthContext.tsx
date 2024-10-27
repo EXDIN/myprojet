@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from 'react';
-import { IMyComponentProps, TypeUserContext, typeUserData } from '../../typesAndInterfaces';
+import { IMyComponentProps, TypeUserContext, typeUserData } from '../typesAndInterfaces';
 
 
 export const UserDataContext = createContext<TypeUserContext>({
