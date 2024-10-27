@@ -1,5 +1,7 @@
 export function getCurrentDate() {
-    return new Date().getDay()+"."+new Date().getMonth()+"."+new Date().getFullYear()
+    const day = (new Date().getDate()) < 10 ? "0"+(new Date().getDate()) : new Date().getDate()
+    const month = (new Date().getMonth()) < 10 ? "0"+(new Date().getMonth()) : new Date().getMonth()
+    return day+"."+month+"."+new Date().getFullYear()
 }
 
 export enum LANGUAGE {
