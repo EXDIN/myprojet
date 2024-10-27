@@ -1,7 +1,7 @@
 import { Eye, Pencil, Trash2 } from "lucide-react";
-import { TypeBodyArticles } from "../../typesAndInterfaces";
 import style from "./Article.module.css"
 import { useState } from "react";
+import { TypeBodyArticles } from "../../../typesAndInterfaces";
 import EditWindow from "./EditWindow/EditWindow";
 import ViewWindow from "./ViewWindow/ViewWindow";
 

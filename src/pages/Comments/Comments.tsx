@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import Footer from "../components/footer/Footer";
-import Header from "../components/header/Header";
 import style from "./comments.module.css"
 import { HandHeart, Pencil, Save, Trash2 } from "lucide-react";
+import Footer from "../../components/footer/Footer";
+import Header from "../../components/header/Header";
 
 type TypeComments = TypeComment[]
 

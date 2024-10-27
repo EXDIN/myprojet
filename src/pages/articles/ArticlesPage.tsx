@@ -1,12 +1,12 @@
-import Footer from "../components/footer/Footer";
-import Header from "../components/header/Header";
 import style from "./articles.module.css"
 import { useEffect, useState } from "react";
-import Article from "./Article/Article";
-import { TypeBodyArticles } from "../typesAndInterfaces";
-import { myLocalArticles } from "../components/urls";
-import AddArticle from "./AddArticle/AddArticle";
 import { useTranslation } from "react-i18next";
+import Footer from "../../components/footer/Footer";
+import Header from "../../components/header/Header";
+import { myLocalArticles } from "../../components/urls";
+import { TypeBodyArticles } from "../../typesAndInterfaces";
+import AddArticle from "./AddArticle/AddArticle";
+import Article from "./Article/Article";
 
 
 const emptyArticles: TypeBodyArticles[] = [

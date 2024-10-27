@@ -1,5 +1,5 @@
-import ModalComponent from "../../../components/ModalComponent/ModalCompont"
-import { TypeBodyArticles } from "../../../typesAndInterfaces"
+import ModalComponent from "../../../../components/ModalComponent/ModalCompont"
+import { TypeBodyArticles } from "../../../../typesAndInterfaces"
 import style from "./viewwindow.module.css"
 
 

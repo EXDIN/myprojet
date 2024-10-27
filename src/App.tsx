@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import MainPage from './Mainpage/MainPage';
-import Registration from './Registrationpage/Registration';
-import Authorization from './Authorizationpage/Authorization';
-import Page404 from './Page404/Page404';
-import ArticlesPage from './articlespage/ArticlesPage';
-import Comments from './Commentspage/Comments';
+import Registration from './pages/Registration/Registration';
+import Page404 from './pages/Page404/Page404';
+import MainPage from './pages/Main/MainPage';
+import Comments from './pages/Comments/Comments';
+import Authorization from './pages/Authorization/Authorization';
+import ArticlesPage from './pages/articles/ArticlesPage';
 
 function App() {
   return (

@@ -1,10 +1,9 @@
 import { useContext, useState } from "react"
 import style from "./editwindow.module.css"
-import { TypeBodyArticles } from "../../../typesAndInterfaces"
-import { getCurrentDate } from "../../../components/common"
-import ModalComponent from "../../../components/ModalComponent/ModalCompont"
-import { UserDataContext } from "../../../components/context/AuthContext"
-
+import { getCurrentDate } from "../../../../components/common"
+import { UserDataContext } from "../../../../components/context/AuthContext"
+import ModalComponent from "../../../../components/ModalComponent/ModalCompont"
+import { TypeBodyArticles } from "../../../../typesAndInterfaces"
 
 
 type TypeArticle = {

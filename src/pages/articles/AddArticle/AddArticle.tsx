@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from "react"
 import style from "./addArticle.module.css"
-import ModalComponent from "../../components/ModalComponent/ModalCompont"
-import { myLocalArticles } from "../../components/urls"
-import { TypeBodyArticles } from "../../typesAndInterfaces"
-import { getCurrentDate } from "../../components/common"
-import { UserDataContext } from "../../components/context/AuthContext"
+import ModalComponent from "../../../components/ModalComponent/ModalCompont"
+import { myLocalArticles } from "../../../components/urls"
+import { TypeBodyArticles } from "../../../typesAndInterfaces"
+import { getCurrentDate } from "../../../components/common"
+import { UserDataContext } from "../../../components/context/AuthContext"
 import { useTranslation } from "react-i18next"
 
 const emptyArticles: TypeBodyArticles = {

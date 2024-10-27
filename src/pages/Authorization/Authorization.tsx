@@ -1,12 +1,12 @@
-import Header from '../components/header/Header'
-import Footer from '../components/footer/Footer'
 import style from "./authorization.module.css"
 import { useContext, useState } from "react";
-import { UserDataContext } from '../components/context/AuthContext';
-import myLocalJsonServer from "../components/urls";
 import { useNavigate } from 'react-router-dom';
-import { UserData, UserDataToLog } from '../typesAndInterfaces';
 import { useTranslation } from 'react-i18next';
+import { UserDataContext } from "../../components/context/AuthContext";
+import Footer from "../../components/footer/Footer";
+import Header from "../../components/header/Header";
+import myLocalJsonServer from "../../components/urls";
+import { UserDataToLog, UserData } from "../../typesAndInterfaces";
 
 
 const emptyUserDataToLog: UserDataToLog  = {
