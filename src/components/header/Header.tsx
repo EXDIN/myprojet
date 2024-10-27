@@ -2,17 +2,16 @@ import { Link } from 'react-router-dom';
 import styles from "./header.module.css"
 import { useContext } from 'react';
 import { UserDataContext } from '../context/AuthContext';
-import { lang } from '../common';
 import { useTranslation } from 'react-i18next';
 
 
-export default function Header () {
+export default function Header() {
   const context = useContext(UserDataContext)
   const { user, updateUser } = context
   const { t } = useTranslation();
 
   const logOut = () => {
-    updateUser({isAuth: false, name: ""})
+    updateUser({ isAuth: false, name: "" })
   }
 
   return (
@@ -20,20 +19,20 @@ export default function Header () {
       <div className={styles.header}>
         <div>
           <Link className={styles.button} to="/">{t("mainpage")}</Link>
-          { 
-          user.isAuth 
-          ?
-          <>
-          <Link className={styles.button} to="/articles">{t("articles")}</Link>
-          <Link className={styles.button} to="/comments">{t("comments")}</Link>
-          </>
-          :
-          null
+          {
+            user.isAuth
+              ?
+              <>
+                <Link className={styles.button} to="/articles">{t("articles")}</Link>
+                <Link className={styles.button} to="/comments">{t("comments")}</Link>
+              </>
+              :
+              null
           }
         </div>
-        { user.isAuth ?
+        {user.isAuth ?
           <>
-            <b className={styles.text}>{t("welcome")+'  '+user.name+" *_*"}</b>
+            <b className={styles.text}>{t("welcome") + '  ' + user.name + " *_*"}</b>
             <button className={styles.button} onClick={logOut}>{t("logout")}</button>
           </>
           :

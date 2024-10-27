@@ -46,29 +46,29 @@
     },
     {
       "id": "10",
-      "title": "Відредаговано точно!!",
-      "body": "asdzxc123",
-      "author": "New Author",
-      "date": "1.8.2024"
+      "title": "Article 1",
+      "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "author": "John Doe",
+      "date": "0.9.2024"
     },
     {
       "id": "11",
-      "title": "Точно нова стаття",
-      "body": "Алерт-алерт тру точно",
-      "author": "New Author",
-      "date": "0.8.2024"
+      "title": "Atricle 2",
+      "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "author": "John Doe",
+      "date": "0.9.2024"
     },
     {
       "id": "13",
-      "title": "something new",
-      "body": "qweqweasdasd\nasdasdasd\nasdasdasdas\nasdasdasdas\nasdasd\nzxczxczxczx\nzxczxcasdqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq123\n",
+      "title": "Atricle 3",
+      "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
       "author": "John Doe",
-      "date": "1.8.2024"
+      "date": "0.9.2024"
     },
     {
       "id": "14",
-      "title": "тест",
-      "body": "тест122",
+      "title": "Atricle 444",
+      "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
       "author": "John Doe",
       "date": "0.9.2024"
     }

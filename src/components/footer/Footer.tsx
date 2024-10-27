@@ -10,7 +10,7 @@ type TypeLanguage = "uk" | "en"
 
 export default function Footer() {
   const [ language, setLanguage ] = useState<TypeLanguage>("uk")
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
 
   const changeLanguage = () => {
     let newLanguage: TypeLanguage = "uk"

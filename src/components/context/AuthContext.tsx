@@ -7,7 +7,7 @@ export const UserDataContext = createContext<TypeUserContext>({
     name: "",
     isAuth: false
   },
-  updateUser: () => {}
+  updateUser: (): void => {}
 });
 
 export const AppProvider: React.FC<IMyComponentProps> = ({ children }) => {

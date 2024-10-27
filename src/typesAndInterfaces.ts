@@ -23,7 +23,7 @@ export type typeUserData = {
 
 export type TypeUserContext = {
   user: typeUserData
-  updateUser: (newUser: {isAuth: boolean, name: string}) => void,
+  updateUser: (newUser: typeUserData) => void,
 }
 
 export type TypeBodyArticles = {
