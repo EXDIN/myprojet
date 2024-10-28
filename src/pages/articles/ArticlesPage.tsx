@@ -62,7 +62,7 @@ export default function ArticlesPage() {
   }
   
   return (
-    <>
+    // <>
       <div className={style.body}>
         <AddArticle></AddArticle>
         <input onChange={onFilter} value={arteclesFilter} className={style.filter} placeholder="Пошук по статтям"></input>
@@ -74,10 +74,10 @@ export default function ArticlesPage() {
               <Article key={article.id} article={article} onDelete={deleteAtricle} updateArticle={updateArticle} />
             )
           :
-            <div className={style.emptyAtricles}>{t("emptyArticles")}</div>
+            <div className={style.emptyAtricles} style={{"height": "100%"}}>{t("emptyArticles")}</div>
           }
         </div>
       </div>
-    </>
+    // </>
   )
 }

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { AppProvider } from './context/AuthContext.tsx'
 import './i18n.ts';
 import App from './routing/App.tsx';
+// import 'antd/dist/reset.css';
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

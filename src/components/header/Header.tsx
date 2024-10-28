@@ -19,6 +19,7 @@ export default function Header() {
       <div className={styles.header}>
         <div>
           <Link className={styles.button} to="/">{t("mainpage")}</Link>
+          <Link className={styles.button} to="/calendar">Календар подій</Link>
           {
             user.isAuth
               ?

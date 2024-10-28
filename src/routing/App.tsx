@@ -6,6 +6,7 @@ import MainPage from '../pages/Main/MainPage';
 import Page404 from '../pages/Page404/Page404';
 import Registration from '../pages/Registration/Registration';
 import Layout from '../components/layout/layout';
+import CalendarComponent from '../pages/Calendar/Calendar';
 
 
 const routes: RouteObject[] = [
@@ -32,6 +33,10 @@ const routes: RouteObject[] = [
       {
         path: "/comments",
         element: <Comments />,
+      },
+      {
+        path: "/calendar",
+        element: <CalendarComponent />,
       },
       {
         path: "/*",

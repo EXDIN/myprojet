@@ -1,6 +1,4 @@
-* {
-    background-color: #1c1e26;
-}
+
 
 .regForm {
     display: flex;
@@ -19,6 +17,7 @@
     border-radius: 5px;
     padding: 1px 10px;
     color: rgb(156, 156, 136);
+    background-color: #1c1e26;
 }
 
 .inputs::placeholder {
