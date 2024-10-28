@@ -1,5 +1,5 @@
 import style from "./articles.module.css"
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { myLocalArticles } from "../../URLS/urls";
 import { TypeBodyArticles } from "../../typesAndInterfaces";
@@ -19,19 +19,21 @@ const emptyArticles: TypeBodyArticles[] = [
 
 export default function ArticlesPage() {
   const [ articles, setArticles ] = useState(emptyArticles);
+  const [ arteclesFilter, setArteclesFilter ] = useState("");
   const { t } = useTranslation();
+  const [ filteredArticles, setFilteredArticles ] = useState(emptyArticles);
 
   useEffect(() => {
     fetch(myLocalArticles)
     .then(response => response.json())
     .then(bdArticles => {
-      setArticles(bdArticles)
+      setArticles(bdArticles); setFilteredArticles(bdArticles)
     })
   }, [])
 
   const deleteAtricle = async (id: string) => {
     const newArticles = articles.filter((el) => Number(el.id) != Number(id))
-    await setArticles([...newArticles])
+    setArticles([...newArticles])
     const response = await fetch(`${myLocalArticles}/${id}`, {
       method: "DELETE",
       headers: {'Content-Type': 'application/json'},
@@ -42,10 +44,10 @@ export default function ArticlesPage() {
     }
   }
 
-  const updateArticle = (newArticle: TypeBodyArticles) => {
+  const updateArticle = async (newArticle: TypeBodyArticles) => {
     const otherAtricles = articles.filter((el) => String(el.id) != String(newArticle.id))
     setArticles([...otherAtricles, newArticle])
-    fetch(`${myLocalArticles}/${newArticle.id}`, {
+    await fetch(`${myLocalArticles}/${newArticle.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
@@ -53,16 +55,22 @@ export default function ArticlesPage() {
       body: JSON.stringify(newArticle)
     })
   }
+
+  const onFilter = (e: ChangeEvent<HTMLInputElement>) => {
+    setArteclesFilter(e.target.value);
+    setFilteredArticles(articles.filter((art) => art.title.toLocaleLowerCase().includes(e.target.value.toLocaleLowerCase())))
+  }
   
   return (
     <>
       <div className={style.body}>
         <AddArticle></AddArticle>
+        <input onChange={onFilter} value={arteclesFilter} className={style.filter} placeholder="Пошук по статтям"></input>
         <div className={style.bodyArticles}>
           {
-          articles.length != 0
+          filteredArticles.length != 0
           ?
-            articles.map((article) => 
+          filteredArticles.map((article) => 
               <Article key={article.id} article={article} onDelete={deleteAtricle} updateArticle={updateArticle} />
             )
           :

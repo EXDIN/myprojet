@@ -23,9 +23,9 @@ export default function Authorization() {
     navigate('/');
   }
   
-  const authorizationUser = (event: React.FormEvent<HTMLFormElement>) => {
+  const authorizationUser = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    fetch(myLocalJsonServer)
+    await fetch(myLocalJsonServer)
     .then(response => response.json())
     .then((users: UserData[]) => {
       const isLogIn: UserData[] = users.filter((user: UserData) => { return user.email === userDataToLog.email && String(user.password) === userDataToLog.password })

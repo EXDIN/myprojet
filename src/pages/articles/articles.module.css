@@ -17,6 +17,14 @@
 .emptyAtricles {
     margin-top: 50px;
     font-size: 22px;
-    text-align: center;
     color: beige;
+}
+
+.filter {
+    width: auto;
+    background-color: beige;
+    font-size: 20px;
+    padding: 10px 30px;
+    border-radius: 10px;
+    margin-left: 10px;
 }
