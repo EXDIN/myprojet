@@ -3,8 +3,6 @@ import { useContext, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { UserDataContext } from "../../context/AuthContext";
-import Footer from "../../components/footer/Footer";
-import Header from "../../components/header/Header";
 import myLocalJsonServer from "../../URLS/urls";
 import { UserDataToLog, UserData } from "../../typesAndInterfaces";
 
@@ -44,14 +42,12 @@ export default function Authorization() {
 
   return (
     <>
-      <Header/>
       <form className={style.authForm} onSubmit={authorizationUser}>
         <text>{t("authorization")}</text>
         <input type="email" id="email" className={style.inputs} placeholder={t("number/email")} required onChange={(e) => setUserDataToLog({...userDataToLog, email: String(e.currentTarget.value)})}/>
         <input type="password" id="password" className={style.inputs} placeholder={t("password")} required onChange={(e) => setUserDataToLog({...userDataToLog, password: String(e.currentTarget.value)})}/>
         <button type="submit" className={style.subButton}>{t("login")}</button>
       </form>
-      <Footer/>
     </>
   )
 }

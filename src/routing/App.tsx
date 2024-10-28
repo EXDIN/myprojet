@@ -1,36 +1,43 @@
-import { BrowserRouter, Routes, Route, createBrowserRouter, RouteObject, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouteObject, RouterProvider } from 'react-router-dom';
 import ArticlesPage from '../pages/articles/ArticlesPage';
 import Authorization from '../pages/Authorization/Authorization';
 import Comments from '../pages/Comments/Comments';
 import MainPage from '../pages/Main/MainPage';
 import Page404 from '../pages/Page404/Page404';
 import Registration from '../pages/Registration/Registration';
+import Layout from '../components/layout/layout';
 
-
+// TODO: ADD Layout
 const routes: RouteObject[] = [
   {
     path: "/",
-    element: <MainPage />,
-  },
-  {
-    path: "/articles",
-    element: <ArticlesPage />,
-  },
-  {
-    path: "/registration",
-    element: <Registration />,
-  },
-  {
-    path: "/authorization",
-    element: <Authorization />,
-  },
-  {
-    path: "/comments",
-    element: <Comments />,
-  },
-  {
-    path: "/*",
-    element: <Page404 />,
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <MainPage />,
+      },
+      {
+        path: "/articles",
+        element: <ArticlesPage />,
+      },
+      {
+        path: "/registration",
+        element: <Registration />,
+      },
+      {
+        path: "/authorization",
+        element: <Authorization />,
+      },
+      {
+        path: "/comments",
+        element: <Comments />,
+      },
+      {
+        path: "/*",
+        element: <Page404 />,
+      },
+    ]
   },
 ]
 

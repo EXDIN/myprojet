@@ -1,8 +1,6 @@
 import style from "./articles.module.css"
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import Footer from "../../components/footer/Footer";
-import Header from "../../components/header/Header";
 import { myLocalArticles } from "../../URLS/urls";
 import { TypeBodyArticles } from "../../typesAndInterfaces";
 import AddArticle from "./AddArticle/AddArticle";
@@ -58,7 +56,6 @@ export default function ArticlesPage() {
   
   return (
     <>
-      <Header></Header>
       <div className={style.body}>
         <AddArticle></AddArticle>
         <div className={style.bodyArticles}>
@@ -73,7 +70,6 @@ export default function ArticlesPage() {
           }
         </div>
       </div>
-      <Footer></Footer>
     </>
   )
 }

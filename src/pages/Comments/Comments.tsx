@@ -1,8 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import style from "./comments.module.css"
 import { HandHeart, Pencil, Save, Trash2 } from "lucide-react";
-import Footer from "../../components/footer/Footer";
-import Header from "../../components/header/Header";
 
 type TypeComments = TypeComment[]
 
@@ -61,7 +59,6 @@ export default function Comments() {
 
   return (
     <>
-      <Header></Header>
       <div className={style.allArticles}>
       {
         comments
@@ -92,7 +89,6 @@ export default function Comments() {
         <div className={style.emptyAtricles}>Завантаження</div>
       }
       </div>
-      <Footer></Footer>
     </>
   )
 }

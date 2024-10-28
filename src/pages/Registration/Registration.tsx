@@ -1,6 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-import Footer from "../../components/footer/Footer";
-import Header from "../../components/header/Header";
 import style from "./registration.module.css"
 import myLocalJsonServer from "../../URLS/urls";
 import { UserDataContext } from "../../context/AuthContext";
@@ -52,7 +50,6 @@ export default function Registration() {
 
   return (
     <>
-      <Header/>
       <form className={style.regForm} onSubmit={createUser}>
         <text>{t("registration")}</text>
         <input type="text" id="name" className={style.inputs} placeholder={t("yourName")} required onChange={(e) => setUserData({...userData, name: e.currentTarget.value})}/>
@@ -61,7 +58,6 @@ export default function Registration() {
         <input type="password" id="password" className={style.inputs} placeholder={t("password")} required onChange={(e) => setUserData({...userData, password: e.currentTarget.value})}/>
         <button type="submit" className={style.subbutton}>{t("createUser")}</button>
       </form>
-      <Footer/>
     </>
   )
 }
