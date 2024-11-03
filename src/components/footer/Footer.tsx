@@ -23,13 +23,13 @@ export default function Footer() {
 
   return (
     <div className={style.footer}>
-      <div>
+      <div className={style.leftSide}>
         <a href={myLinkd}>
           <img src={linkdn} className={style.linked}/>
         </a>
         <text>© Lila Entertainment, Inc., 2024</text>
       </div>
-      <button className={style.language} onClick={() => changeLanguage()}><Globe className={style.ikon}></Globe>{language}</button>
+      <button className={style.language} onClick={() => changeLanguage()}><Globe></Globe>{language}</button>
     </div>
   )
 }

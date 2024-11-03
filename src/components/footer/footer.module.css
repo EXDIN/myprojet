@@ -1,8 +1,9 @@
 
 
 .footer {
-    height: 50px;
+    height: auto;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     color: #fff;
@@ -11,15 +12,23 @@
     position: fixed;
     bottom: 0;
     width: 100%;
+    padding: 10px 25px;
+}
+
+.leftSide {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
 }
 
 .linked {
     height: 30px;
-    margin: 0px 10px;
 }
 
 .language {
     display: flex;
+    gap: 5px;
     color: beige;
     cursor: pointer;
     border: none;
@@ -27,8 +36,4 @@
     align-items: center;
     color:rgb(0, 140, 255);
     background-color: #1c1e26;
-}
-
-.ikon {
-    margin-right: 5px;
 }

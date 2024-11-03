@@ -17,27 +17,28 @@ export default function Header() {
   return (
     <>
       <div className={styles.header}>
-        <div>
+        <div className={styles.leftSide}>
           <Link className={styles.button} to="/">{t("mainpage")}</Link>
           <Link className={styles.button} to="/calendar">Календар подій</Link>
-          {
-            user.isAuth
-              ?
-              <>
-                <Link className={styles.button} to="/articles">{t("articles")}</Link>
-                <Link className={styles.button} to="/comments">{t("comments")}</Link>
-              </>
-              :
-              null
-          }
-        </div>
+       
+        {
+          user.isAuth
+            ?
+            <>
+              <Link className={styles.button} to="/articles">{t("articles")}</Link>
+              <Link className={styles.button} to="/comments">{t("comments")}</Link>
+            </>
+            :
+            null
+        }
+         </div>
         {user.isAuth ?
           <>
             <b className={styles.text}>{t("welcome") + '  ' + user.name + " *_*"}</b>
             <button className={styles.button} onClick={logOut}>{t("logout")}</button>
           </>
           :
-          <div >
+          <div className={styles.rigthSide}>
             <Link className={styles.inbutton} to="/authorization">{t("login")}</Link>
             <Link className={styles.regbutton} to="/registration">{t("registration")}</ Link>
           </div>
