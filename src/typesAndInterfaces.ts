@@ -33,3 +33,10 @@ export type TypeBodyArticles = {
   author: string
   date: string
 }
+
+
+export type TypeEvent = {
+  author: string,
+  description: string,
+  date: string,
+}

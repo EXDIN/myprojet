@@ -19,7 +19,7 @@ export default function Header() {
       <div className={styles.header}>
         <div className={styles.leftSide}>
           <Link className={styles.button} to="/">{t("mainpage")}</Link>
-          <Link className={styles.button} to="/calendar">Календар подій</Link>
+          <Link className={styles.button} to="/event">Календар подій</Link>
        
         {
           user.isAuth

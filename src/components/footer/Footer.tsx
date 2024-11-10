@@ -27,7 +27,7 @@ export default function Footer() {
         <a href={myLinkd}>
           <img src={linkdn} className={style.linked}/>
         </a>
-        <text>© Lila Entertainment, Inc., 2024</text>
+        <span>© Lila Entertainment, Inc., 2024</span>
       </div>
       <button className={style.language} onClick={() => changeLanguage()}><Globe></Globe>{language}</button>
     </div>

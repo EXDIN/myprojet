@@ -19,12 +19,16 @@
 }
 
 .mainText {
-    color: beige;
-    font-size: 16px;
-    text-align: start;
     height: 150px;
+    font-size: 16px;
+    color: beige;
+    text-align: start;
     overflow: hidden;
     word-wrap: break-word;
+}
+
+.mainText:hover {
+    overflow: auto;
 }
 
 .articleFooter {

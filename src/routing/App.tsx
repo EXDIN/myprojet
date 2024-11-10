@@ -6,9 +6,10 @@ import MainPage from '../pages/Main/MainPage';
 import Page404 from '../pages/Page404/Page404';
 import Registration from '../pages/Registration/Registration';
 import Layout from '../components/layout/layout';
-import CalendarComponent from '../pages/Calendar/Calendar';
+import Event from '../pages/Calendar/Event';
 
 
+// TODO: enum routers
 const routes: RouteObject[] = [
   {
     path: "/",
@@ -35,8 +36,8 @@ const routes: RouteObject[] = [
         element: <Comments />,
       },
       {
-        path: "/calendar",
-        element: <CalendarComponent />,
+        path: "/event",
+        element: <Event/>,
       },
       {
         path: "/*",
