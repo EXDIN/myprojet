@@ -3,6 +3,7 @@ import styles from "./header.module.css"
 import { useContext } from 'react';
 import { UserDataContext } from '../../context/AuthContext';
 import { useTranslation } from 'react-i18next';
+import Pages from '../../routing/Pages';
 
 
 export default function Header() {
@@ -18,15 +19,15 @@ export default function Header() {
     <>
       <div className={styles.header}>
         <div className={styles.leftSide}>
-          <Link className={styles.button} to="/">{t("mainpage")}</Link>
-          <Link className={styles.button} to="/event">Календар подій</Link>
+          <Link className={styles.button} to={Pages.Home}>{t("mainpage")}</Link>
+          <Link className={styles.button} to={Pages.Event}>Календар подій</Link>
        
         {
           user.isAuth
             ?
             <>
-              <Link className={styles.button} to="/articles">{t("articles")}</Link>
-              <Link className={styles.button} to="/comments">{t("comments")}</Link>
+              <Link className={styles.button} to={Pages.Articles}>{t("articles")}</Link>
+              <Link className={styles.button} to={Pages.Comments}>{t("comments")}</Link>
             </>
             :
             null
@@ -39,8 +40,8 @@ export default function Header() {
           </>
           :
           <div className={styles.rigthSide}>
-            <Link className={styles.inbutton} to="/authorization">{t("login")}</Link>
-            <Link className={styles.regbutton} to="/registration">{t("registration")}</ Link>
+            <Link className={styles.inbutton} to={Pages.Authorization}>{t("login")}</Link>
+            <Link className={styles.regbutton} to={Pages.Registration}>{t("registration")}</ Link>
           </div>
         }
       </div>
