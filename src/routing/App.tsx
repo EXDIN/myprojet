@@ -7,40 +7,40 @@ import Page404 from '../pages/Page404/Page404';
 import Registration from '../pages/Registration/Registration';
 import Layout from '../components/layout/layout';
 import Event from '../pages/Calendar/Event';
+import Pages from './Pages';
 
 
-// TODO: enum routers
 const routes: RouteObject[] = [
   {
-    path: "/",
+    path: Pages.Home,
     element: <Layout />,
     children: [
       {
-        path: "/",
+        path: Pages.Home,
         element: <MainPage />,
       },
       {
-        path: "/articles",
+        path: Pages.Articles,
         element: <ArticlesPage />,
       },
       {
-        path: "/registration",
+        path: Pages.Registration,
         element: <Registration />,
       },
       {
-        path: "/authorization",
+        path: Pages.Authorization,
         element: <Authorization />,
       },
       {
-        path: "/comments",
+        path: Pages.Comments,
         element: <Comments />,
       },
       {
-        path: "/event",
+        path: Pages.Event,
         element: <Event/>,
       },
       {
-        path: "/*",
+        path: Pages.Undefined,
         element: <Page404 />,
       },
     ]
